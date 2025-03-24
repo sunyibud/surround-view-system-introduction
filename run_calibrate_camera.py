@@ -12,6 +12,13 @@ Usage:
         --resolution 640x480
         --fisheye
 """
+'''
+只需要运行这个脚本，通过命令行参数告诉它相机设备号，是否是鱼眼相机，以及标定板的网格大小，然后手举标定板在相机面前摆几个姿势即可。
+demo:
+四个相机分别拍摄的原始画面，顺序依次为前、后、左、右，并命名为 front.png、back.png、left.png、right.png 保存在项目的 images/ 目录下
+四个相机的内参文件分别为 front.yaml、back.yaml、left.yaml、right.yaml，这些内参文件都存放在项目的 yaml 子目录下。
+可以看到图中地面上铺了一张标定布，这个布的尺寸是 6mx10m，每个黑白方格的尺寸为 40cmx40cm，每个圆形图案所在的方格是 80cmx80cm。我们将利用这个标定物来手动选择对应点获得投影矩阵。
+'''
 import argparse
 import os
 import numpy as np
